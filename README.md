@@ -1,63 +1,46 @@
-# ESP32 PWM Resolution and Frequency Experiment with 5 LEDs
+# ESP32 PWM 5-LED Fading Demo
 
-This project demonstrates how PWM (Pulse Width Modulation) works on the ESP32 by controlling 5 LEDs with adjustable frequency and resolution settings. It helps you understand how PWM duty cycle precision and frequency affect LED brightness, flickering, and dimming smoothness.
+Control 5 LEDs on ESP32 using PWM with adjustable frequency and resolution for smooth brightness fading.
 
-## 🔧 Features
+## 📹 Demo Video
 
-- Control 5 LEDs with PWM on ESP32  
-- Adjustable **PWM resolution** (e.g., 8–15 bits)  
-- Adjustable **PWM frequency** (e.g., 500 Hz to 20 kHz+)  
-- Smooth LED brightness fading using `ledcWrite()`  
-- Great for learning PWM behavior and multi-channel control  
+[🎬 Watch on YouTube](https://youtu.be/PRRSQ8gPyeo)
 
-## 🛠️ Hardware Required
+---
 
-- ESP32 board (e.g., DevKit V1)  
-- 5x LEDs connected to GPIO pins with 220Ω resistors  
-- Breadboard and jumper wires (optional)  
+## 🔌 GPIO Pin Mapping
 
-### Pin Setup
+| LED Number | GPIO Pin | Resistor | Notes                  |
+|------------|----------|----------|------------------------|
+| LED 1      | GPIO 18  | 220Ω     | PWM channel 0          |
+| LED 2      | GPIO 19  | 220Ω     | PWM channel 1          |
+| LED 3      | GPIO 21  | 220Ω     | PWM channel 2          |
+| LED 4      | GPIO 22  | 220Ω     | PWM channel 3          |
+| LED 5      | GPIO 23  | 220Ω     | PWM channel 4          |
 
-| LED Number | GPIO Pin | Notes                      |
-|------------|----------|----------------------------|
-| LED 1      | 18       | PWM channel 0              |
-| LED 2      | 19       | PWM channel 1              |
-| LED 3      | 21       | PWM channel 2              |
-| LED 4      | 22       | PWM channel 3              |
-| LED 5      | 23       | PWM channel 4              |
-| GND        | GND      | Connect all LED resistors to GND |
+---
 
-## 📦 File Included
+## 🛠️ Setup Instructions
 
-- `PWM_5LEDs.ino` — Arduino sketch controlling 5 PWM channels fading LEDs
+1. Insert 5 LEDs into the breadboard.  
+2. Connect a **220Ω resistor** from each ESP32 GPIO pin to the **anode (+)** leg of the LED.  
+3. Connect all LED **cathodes (–)** together to the **GND rail** on the breadboard.  
+4. Connect the breadboard **GND rail** to an ESP32 **GND pin**.  
+5. Open the `PWM_5LEDs.ino` sketch in Arduino IDE.  
+6. Select your ESP32 board and COM port.  
+7. Upload the sketch.  
+8. Watch the LEDs fade smoothly with PWM control.
 
-## 🧪 How It Works
+---
 
-The sketch uses ESP32’s `ledcSetup()` and `ledcWrite()` functions to create PWM signals on 5 channels (GPIOs 18, 19, 21, 22, 23). You can adjust frequency and resolution to see how PWM parameters affect LED brightness and fading smoothness on multiple outputs simultaneously.
+## 📁 Files Included
 
-## 🧭 Usage
+- `PWM_5LEDs.ino`  
+- `.gitignore`  
+- `README.md`
 
-1. Connect 5 LEDs each with a 220Ω resistor to GPIOs 18, 19, 21, 22, and 23, respectively.  
-2. Connect the other ends of resistors to GND.  
-3. Open the `PWM_5LEDs.ino` in Arduino IDE.  
-4. Select your ESP32 board and COM port.  
-5. Upload the sketch.  
-6. Watch all LEDs fade smoothly with configurable PWM settings.
-
-## ▶️ YouTube Video Tutorial
-
-Watch the full tutorial here: [ESP32 PWM 5 LEDs Tutorial](https://youtu.be/PRRSQ8gPyeo)
-
-## 📘 Example
-
-```cpp
-const int freq = 5000;            // PWM frequency
-const int resolution = 8;         // PWM resolution (bits)
-const int ledPins[5] = {18,19,21,22,23};  // GPIO pins for LEDs
-
-
+---
 
 ## 📃 License
 
 MIT License — free to use, modify, and share.
-
