@@ -54,3 +54,10 @@ Watch the full tutorial here: [ESP32 PWM 5 LEDs Tutorial](https://youtu.be/PRRSQ
 const int freq = 5000;            // PWM frequency
 const int resolution = 8;         // PWM resolution (bits)
 const int ledPins[5] = {18,19,21,22,23};  // GPIO pins for LEDs
+
+
+
+## 📃 License
+
+MIT License — free to use, modify, and share.
+
